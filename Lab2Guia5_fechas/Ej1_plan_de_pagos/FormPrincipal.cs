@@ -115,6 +115,8 @@ namespace Ej1_plan_de_pagos
             */
 
             PlanDePago plan = new PlanDePago(223, 10, DateTime.Now, new Infractor { });
+
+            tbDetalle.Text = plan.ToString();
         }
 
         private void label5_Click(object sender, EventArgs e)

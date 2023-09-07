@@ -46,6 +46,8 @@ namespace Ej1_plan_de_pagos.Modelo
                     FechaSegundoVenc = CalcularVencimiento(fechaMesProximo, 8)
                 };
 
+                cuotas.Add(cuota);
+
                 //
 
                 fechaMesProximo = PrimerDiaMesSiguiente(fechaAlta);
@@ -88,6 +90,16 @@ namespace Ej1_plan_de_pagos.Modelo
                 cuota = cuotas[idx];
 
             return cuota;
+        }
+
+        public override string ToString()
+        {
+            string linea = "";
+            foreach (Cuota cuota in cuotas)
+            {
+                linea += cuota + "\r\n";
+            }
+            return linea;
         }
     }
 }
