@@ -8,7 +8,55 @@ namespace Ej1_plan_de_pagos.Modelo
 {
     class Cuota
     {
-        public DateTime FechaPrimerVencimiento { get; set; }
-        public DateTime FechaSegundoVencimiento { get; set; }
+        public int Numero { get; set; }
+        public double MontoBase { get; set; }
+        public double PorcenVoluntario { get; set; }
+        public double MontoVoluntario
+        {
+            get
+            {
+                return MontoBase * PorcenVoluntario / 100;
+            }
+        }
+        public DateTime FechaPrimerVenc { get; set; }
+        public double MontoPrimerVenc 
+        {
+            get 
+            {
+                return MontoBase + MontoVoluntario;
+            }
+        }
+        public DateTime FechaSegundoVenc { get; set; }
+
+        public double MontoSegundoVenc 
+        {
+            get 
+            {
+                return MontoBase + MontoVoluntario;
+            } 
+        }
+
+        public double SobreCargoMontoSegundoVenc
+        {
+            get
+            {
+                return MontoSegundoVenc * 20 / 100;
+            }
+        }
+
+        public double MontoSegundoVencConSobr
+        {
+            get
+            {
+                return MontoSegundoVenc + SobreCargoMontoSegundoVenc;
+            }
+        }
+
+        public override string ToString()
+        {
+            string linea = $"Cuota número {Numero} -  Valor Cuota {MontoBase} \n" +
+                           $"Valor Primer Vencimiento ({FechaPrimerVenc:dd/MM/yy})  ${MontoPrimerVenc,10:f2}";
+            return linea;
+        }
     }
 }

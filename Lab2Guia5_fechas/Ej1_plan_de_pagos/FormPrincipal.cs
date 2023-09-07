@@ -113,6 +113,8 @@ namespace Ej1_plan_de_pagos
             listBox1.Items.Add(dtSegundoVencimiento.ToShortDateString());
 
             */
+
+            PlanDePago plan = new PlanDePago(223, 10, DateTime.Now, new Infractor { });
         }
 
         private void label5_Click(object sender, EventArgs e)
