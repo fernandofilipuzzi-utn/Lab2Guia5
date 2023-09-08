@@ -47,7 +47,8 @@ namespace Ej1_plan_de_pagos
             this.pickerInicio = new System.Windows.Forms.DateTimePicker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tbDetalle = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbxPlanesGenerados = new System.Windows.Forms.ListBox();
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupCuotas)).BeginInit();
@@ -205,21 +206,22 @@ namespace Ej1_plan_de_pagos
             this.tbDetalle.Size = new System.Drawing.Size(579, 229);
             this.tbDetalle.TabIndex = 21;
             // 
-            // listBox1
+            // lbxPlanesGenerados
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(621, 23);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(244, 196);
-            this.listBox1.TabIndex = 22;
+            this.lbxPlanesGenerados.FormattingEnabled = true;
+            this.lbxPlanesGenerados.ItemHeight = 16;
+            this.lbxPlanesGenerados.Location = new System.Drawing.Point(621, 23);
+            this.lbxPlanesGenerados.Name = "lbxPlanesGenerados";
+            this.lbxPlanesGenerados.Size = new System.Drawing.Size(244, 196);
+            this.lbxPlanesGenerados.TabIndex = 22;
+            this.lbxPlanesGenerados.SelectedIndexChanged += new System.EventHandler(this.lbxPlanesGenerados_SelectedIndexChanged);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 491);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbxPlanesGenerados);
             this.Controls.Add(this.tbDetalle);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dtCalendario);
@@ -263,7 +265,8 @@ namespace Ej1_plan_de_pagos
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nupCuotas;
         private System.Windows.Forms.TextBox tbDetalle;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbxPlanesGenerados;
+        private System.Windows.Forms.ToolTip toolTip2;
     }
 }
 

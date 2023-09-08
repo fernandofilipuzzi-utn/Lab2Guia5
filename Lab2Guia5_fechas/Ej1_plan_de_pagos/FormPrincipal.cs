@@ -60,8 +60,6 @@ namespace Ej1_plan_de_pagos
         {
             if (Validar() == true)
             {
-                tbDetalle.Clear();
-
                 int dni = Convert.ToInt32(tbDni.Text);
                 string nombre = tbApellidosYNombres.Text;
                 double monto = Convert.ToDouble(tbMonto.Text);
@@ -79,7 +77,7 @@ namespace Ej1_plan_de_pagos
 
                 tbDetalle.Text = plan.VerDetalle();
 
-                listBox1.Items.Add(plan);
+                lbxPlanesGenerados.Items.Add(plan);
 
                 #region limpiando controles
                 tbDni.Clear();
@@ -155,7 +153,15 @@ namespace Ej1_plan_de_pagos
             }
         }
 
-       
+        private void lbxPlanesGenerados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PlanDePago plan = lbxPlanesGenerados.SelectedItem as PlanDePago;
+            
+            if(plan !=null)
+                tbDetalle.Text = plan.VerDetalle();
+        }
+
+
 
         /*
         private void btnNuevo_Click(object sender, EventArgs e)
