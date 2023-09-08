@@ -54,13 +54,13 @@ namespace Ej1_plan_de_pagos.Modelo
 
         public override string ToString()
         {
-            string linea = $"Cuota número {Numero} -  Valor Cuota {MontoBase} \r\n" +
+            string linea = $"Cuota número {Numero} -  Valor Cuota {MontoBase:f2} \r\n" +
                            
-                            $"Donación voluntaria {PorcenVoluntario}% -  ${MontoVoluntario,10:f2} \r\n" +
-
-                           $"Primer Vencimiento ({FechaPrimerVenc:dd/MM/yy})  ${MontoPrimerVenc,10:f2}\r\n" +
+                           $"{$"Donación voluntaria {PorcenVoluntario}% -  ",30}${MontoVoluntario,10:f2}" +
+                           "\r\n" +
+                           $"{$"Primer Vencimiento ({FechaPrimerVenc:dd/MM/yy})",30}${MontoPrimerVenc,10:f2}\r\n" +
                            "\r\n"+
-                           $"Segundo Vencimiento ({FechaSegundoVenc:dd/MM/yy})  ${MontoSegundoVenc,10:f2}\r\n";
+                           $"{$"Segundo Vencimiento ({FechaSegundoVenc:dd/MM/yy})",30}${MontoSegundoVenc,10:f2}\r\n";
             //faltan cosas
 
             return linea;

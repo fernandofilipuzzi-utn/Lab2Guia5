@@ -16,32 +16,7 @@ namespace Ej1_plan_de_pagos
 {
     public partial class FormPrincipal : Form
     {
-        List<Feriado> feriados = new List<Feriado>();
-
-        public Feriado Buscar(DateTime fecha)
-        {
-            Feriado buscado = null;
-            int n = 0;
-            while (n < feriados.Count && buscado == null)
-            {
-                if (feriados[n].Dia.Year == fecha.Year && feriados[n].Dia.Month == fecha.Month && feriados[n].Dia.Day == fecha.Day)
-                //if(fecha.CompareTo(feriados[n].Dia)==0) ojo aquí!
-                    buscado = feriados[n];
-                n++;
-            }
-            return buscado;
-        }
-        public DateTime[] Fechas()
-        {
-            DateTime[] fechas = new DateTime[feriados.Count];
-            int n = 0;
-            while (n < feriados.Count)
-            {
-                fechas[n] = feriados[n].Dia;
-                n++;
-            }
-            return fechas;
-        }
+        Calendario calendario = new Calendario();
 
 
         public FormPrincipal()
@@ -59,13 +34,11 @@ namespace Ej1_plan_de_pagos
 
             if (fDatoFeriado.ShowDialog() == DialogResult.OK)
             {
-                Feriado feriado = new Feriado()
-                {
-                    Dia = fDatoFeriado.pickFecha.Value,
-                    Descripcion = fDatoFeriado.tbDescripcion.Text,
-                };
-                feriados.Add(feriado);
-                calendario.BoldedDates = Fechas();
+                DateTime dia = fDatoFeriado.pickFecha.Value;
+                string descripcion = fDatoFeriado.tbDescripcion.Text;
+             
+                calendario.AgregarFeriado(dia, descripcion);
+                dtCalendario.BoldedDates = calendario.Fechas();
             }
         }
 
@@ -76,19 +49,35 @@ namespace Ej1_plan_de_pagos
 
         private void calendario_DateSelected(object sender, DateRangeEventArgs e)
         {
-            DateTime selectedDate = calendario.SelectionStart;
+            DateTime selectedDate = dtCalendario.SelectionStart;
 
-            Feriado consulta = Buscar(selectedDate);
+            Feriado consulta = calendario.Buscar(selectedDate);
 
             if (consulta != null)
             {
-                toolTip1.SetToolTip(calendario, consulta.Descripcion);
+                toolTip1.SetToolTip(dtCalendario, consulta.Descripcion);
             }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            /*
+            double monto = Convert.ToDouble(tbMonto.Text);
+            int cantCuotas = Convert.ToInt32(nupCuotas.Value);
+            DateTime fechaAltaPlan = pickerInicio.Value;
+            int dni = Convert.ToInt32(tbDni.Text);
+            string nombre = tbApellidosYNombres.Text;
+
+            Infractor destinatario = new Infractor {
+                                            DNI=dni,
+                                            ApelldosyNombres=nombre
+                                        };
+
+            PlanDePago plan = new PlanDePago(monto, cantCuotas, fechaAltaPlan, destinatario, calendario);
+
+            tbDetalle.Text = plan.ToString();
+
+            /* para entender como empezar con las fechas
+             
             DateTime dtInicioPago = pickerInicio.Value;
 
             DateTime dtInicioPlan = new DateTime(dtInicioPago.Year, dtInicioPago.Month, 1).AddMonths(1);
@@ -114,13 +103,6 @@ namespace Ej1_plan_de_pagos
 
             */
 
-            PlanDePago plan = new PlanDePago(223, 10, DateTime.Now, new Infractor { });
-
-            tbDetalle.Text = plan.ToString();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
 
         }
     }

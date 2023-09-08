@@ -24,7 +24,7 @@ namespace Ej1_plan_de_pagos.Modelo
         public DateTime FechaAlta { get; private set; }
 
         public PlanDePago(double monto, int cantCuotas, DateTime fechaAlta,
-                            Infractor destinatario)
+                            Infractor destinatario,  Calendario calendario)
         {
             this.Destinatario = destinatario;
             this.cantidadCuotas = cantCuotas;
@@ -32,54 +32,60 @@ namespace Ej1_plan_de_pagos.Modelo
 
             double montoCuota = monto / cantCuotas;
 
-            DateTime fechaMesProximo = PrimerDiaMesSiguiente(fechaAlta);
+            DateTime fechaMesProximo = PrimerDiaHabilMesSiguiente(fechaAlta, calendario);
 
-            int n = 0;
-            while (n < cantCuotas)
+            int nroCuota = 1;
+            while (nroCuota <= cantCuotas)
             {
+                DateTime primerVenc = CalcularFechaVencimiento(fechaMesProximo, 8, calendario);
+                DateTime segundoVenc = CalcularFechaVencimiento(primerVenc, 15+1, calendario);
+
                 Cuota cuota = new Cuota
                 {
-                    Numero = n + 1,
+                    Numero = nroCuota,
                     MontoBase = montoCuota,
                     PorcenVoluntario = 5,
-                    FechaPrimerVenc = CalcularVencimiento(fechaMesProximo, 8),
-                    FechaSegundoVenc = CalcularVencimiento(fechaMesProximo, 8)
+                    FechaPrimerVenc = primerVenc,
+                    FechaSegundoVenc = segundoVenc
                 };
 
                 cuotas.Add(cuota);
 
-                //
-
-                fechaMesProximo = PrimerDiaMesSiguiente(fechaAlta);
-                n++;
+                fechaMesProximo = PrimerDiaHabilMesSiguiente(fechaMesProximo, calendario);
+                nroCuota++;
             }
         }
 
-        private DateTime PrimerDiaMesSiguiente(DateTime actual)
+        private DateTime PrimerDiaHabilMesSiguiente(DateTime actual, Calendario feriados)
         {
             DateTime siguiente = new DateTime(actual.Year, actual.Month, 1).AddMonths(1);
-            int dias = 0;
-            if (actual.DayOfWeek == DayOfWeek.Saturday)
-                dias = 2;
-            else if (actual.DayOfWeek == DayOfWeek.Sunday)
-                dias = 1;
-            actual = actual.AddDays(dias);
+            siguiente = DeterminarDiaHabil(siguiente, feriados);
             return siguiente;
         }
 
-        private DateTime CalcularVencimiento(DateTime mesActual, int dias)
+        private DateTime DeterminarDiaHabil(DateTime actual, Calendario feriados)
         {
-            DateTime primerVenc = mesActual;
-            int n = 0;
-            while (n < dias)
+            if (actual.DayOfWeek == DayOfWeek.Saturday || 
+                actual.DayOfWeek == DayOfWeek.Sunday ||
+                feriados.Buscar(actual) != null )
             {
-                primerVenc = mesActual.AddDays(1);
-                if (primerVenc.DayOfWeek < DayOfWeek.Saturday)
-                {
-                    n++;
-                }
+                actual = DeterminarDiaHabil(actual.AddDays(1), feriados);
             }
-            return primerVenc;
+            return actual;
+        }
+
+        private DateTime CalcularFechaVencimiento(DateTime mesActual, int cantDiasHabiles, Calendario feriados)
+        {
+            DateTime venc = mesActual;
+
+            int diasHabiles = 1;
+            while (diasHabiles < cantDiasHabiles)
+            {
+                venc = DeterminarDiaHabil(venc.AddDays(1), feriados);
+                diasHabiles++;
+            }
+
+            return venc;
         }
 
         public Cuota VerCuota(int idx)

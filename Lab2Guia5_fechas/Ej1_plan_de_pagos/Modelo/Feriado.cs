@@ -8,8 +8,13 @@ namespace Ej1_plan_de_pagos.Modelo
 {
     public class Feriado
     {
-        public string Descripcion { get; set; }
         public DateTime Dia { get; set; }
 
+        public string Descripcion { get; set; }
+        
+        public bool CompararDia(DateTime day)
+        {
+            return day != null && Dia!=null && day.Year == Dia.Year && day.Month == Dia.Month && day.Day == Dia.Day;
+        }
     }
 }

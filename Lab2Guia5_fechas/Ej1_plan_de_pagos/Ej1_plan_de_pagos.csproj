@@ -58,6 +58,7 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Calendario.cs" />
     <Compile Include="Modelo\Cuota.cs" />
     <Compile Include="Modelo\Feriado.cs" />
     <Compile Include="Modelo\Infractor.cs" />

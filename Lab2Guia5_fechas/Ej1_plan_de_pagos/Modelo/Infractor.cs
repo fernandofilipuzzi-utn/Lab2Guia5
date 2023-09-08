@@ -8,5 +8,7 @@ namespace Ej1_plan_de_pagos.Modelo
 {
     class Infractor
     {
+        public int DNI { get; set; }
+        public string ApelldosyNombres { get; set; }
     }
 }
