@@ -46,6 +46,7 @@ namespace Ej1_plan_de_pagos.Modelo
                     MontoBase = montoCuota,
                     PorcenVoluntario = 5,
                     FechaPrimerVenc = primerVenc,
+                    PorcenSegundoVenc=20,
                     FechaSegundoVenc = segundoVenc
                 };
 
@@ -105,7 +106,9 @@ namespace Ej1_plan_de_pagos.Modelo
 
         public string VerDetalle() 
         {
-            string linea = "";
+            string linea = $"Destinatario: {Destinatario}\r\n" +
+                            "\r\n";
+
             foreach (Cuota cuota in cuotas)
             {
                 linea += cuota + "\r\n";

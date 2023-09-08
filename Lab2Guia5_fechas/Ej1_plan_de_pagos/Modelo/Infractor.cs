@@ -10,5 +10,10 @@ namespace Ej1_plan_de_pagos.Modelo
     {
         public int DNI { get; set; }
         public string ApelldosyNombres { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ApelldosyNombres}({DNI})";
+        }
     }
 }
