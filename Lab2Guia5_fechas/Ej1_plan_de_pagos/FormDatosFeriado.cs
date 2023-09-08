@@ -19,7 +19,6 @@ namespace Ej1_plan_de_pagos
 
         private void FormDatosFeriado_Load(object sender, EventArgs e)
         {
-            this.Location = Screen.AllScreens.ElementAtOrDefault(0).WorkingArea.Location;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

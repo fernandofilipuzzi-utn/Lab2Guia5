@@ -103,7 +103,7 @@ namespace Ej1_plan_de_pagos
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDatosFeriado";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DatosFeriados";
             this.Load += new System.EventHandler(this.FormDatosFeriado_Load);
             this.ResumeLayout(false);
