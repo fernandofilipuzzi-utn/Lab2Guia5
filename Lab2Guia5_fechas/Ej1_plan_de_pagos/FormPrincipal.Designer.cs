@@ -47,6 +47,7 @@ namespace Ej1_plan_de_pagos
             this.pickerInicio = new System.Windows.Forms.DateTimePicker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tbDetalle = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupCuotas)).BeginInit();
@@ -54,21 +55,21 @@ namespace Ej1_plan_de_pagos
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(710, 12);
+            this.btnNuevo.Location = new System.Drawing.Point(219, 207);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(139, 62);
+            this.btnNuevo.Size = new System.Drawing.Size(176, 36);
             this.btnNuevo.TabIndex = 9;
-            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.Text = "Ingresar Plan de pagos";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(710, 240);
+            this.button1.Location = new System.Drawing.Point(725, 281);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 62);
+            this.button1.Size = new System.Drawing.Size(139, 31);
             this.button1.TabIndex = 14;
             this.button1.Text = "Agregar Feriados";
             this.button1.UseVisualStyleBackColor = true;
@@ -80,6 +81,7 @@ namespace Ej1_plan_de_pagos
             this.tbApellidosYNombres.Name = "tbApellidosYNombres";
             this.tbApellidosYNombres.Size = new System.Drawing.Size(200, 22);
             this.tbApellidosYNombres.TabIndex = 15;
+            this.tbApellidosYNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbApellidosYNombres_KeyPress);
             // 
             // groupBox1
             // 
@@ -109,6 +111,8 @@ namespace Ej1_plan_de_pagos
             this.tbDni.Name = "tbDni";
             this.tbDni.Size = new System.Drawing.Size(200, 22);
             this.tbDni.TabIndex = 18;
+            this.tbDni.TextChanged += new System.EventHandler(this.tbDni_TextChanged);
+            this.tbDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDni_KeyPress);
             // 
             // label1
             // 
@@ -121,7 +125,7 @@ namespace Ej1_plan_de_pagos
             // 
             // dtCalendario
             // 
-            this.dtCalendario.Location = new System.Drawing.Point(611, 311);
+            this.dtCalendario.Location = new System.Drawing.Point(617, 311);
             this.dtCalendario.Name = "dtCalendario";
             this.dtCalendario.TabIndex = 17;
             this.dtCalendario.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendario_DateSelected);
@@ -181,6 +185,8 @@ namespace Ej1_plan_de_pagos
             this.tbMonto.Name = "tbMonto";
             this.tbMonto.Size = new System.Drawing.Size(204, 22);
             this.tbMonto.TabIndex = 18;
+            this.tbMonto.TextChanged += new System.EventHandler(this.tbMonto_TextChanged);
+            this.tbMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMonto_KeyPress);
             // 
             // pickerInicio
             // 
@@ -193,17 +199,27 @@ namespace Ej1_plan_de_pagos
             // tbDetalle
             // 
             this.tbDetalle.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDetalle.Location = new System.Drawing.Point(29, 206);
+            this.tbDetalle.Location = new System.Drawing.Point(29, 250);
             this.tbDetalle.Multiline = true;
             this.tbDetalle.Name = "tbDetalle";
-            this.tbDetalle.Size = new System.Drawing.Size(579, 273);
+            this.tbDetalle.Size = new System.Drawing.Size(579, 229);
             this.tbDetalle.TabIndex = 21;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(621, 23);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(244, 196);
+            this.listBox1.TabIndex = 22;
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 491);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.tbDetalle);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dtCalendario);
@@ -215,6 +231,8 @@ namespace Ej1_plan_de_pagos
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormPrincipal";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de plan de pagos";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.groupBox1.ResumeLayout(false);
@@ -245,6 +263,7 @@ namespace Ej1_plan_de_pagos
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nupCuotas;
         private System.Windows.Forms.TextBox tbDetalle;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

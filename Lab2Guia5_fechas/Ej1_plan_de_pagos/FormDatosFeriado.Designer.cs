@@ -44,15 +44,17 @@ namespace Ej1_plan_de_pagos
             this.pickFecha.Name = "pickFecha";
             this.pickFecha.Size = new System.Drawing.Size(106, 22);
             this.pickFecha.TabIndex = 0;
+            this.pickFecha.ValueChanged += new System.EventHandler(this.pickFecha_ValueChanged);
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Location = new System.Drawing.Point(49, 105);
+            this.tbDescripcion.Location = new System.Drawing.Point(51, 95);
             this.tbDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescripcion.Multiline = true;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(397, 94);
             this.tbDescripcion.TabIndex = 1;
+            this.tbDescripcion.TextChanged += new System.EventHandler(this.tbDescripcion_TextChanged);
             // 
             // btnAceptar
             // 
@@ -64,11 +66,12 @@ namespace Ej1_plan_de_pagos
             this.btnAceptar.TabIndex = 2;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(312, 197);
+            this.btnCancelar.Location = new System.Drawing.Point(313, 197);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
@@ -90,7 +93,7 @@ namespace Ej1_plan_de_pagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 238);
+            this.ClientSize = new System.Drawing.Size(461, 230);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -100,7 +103,9 @@ namespace Ej1_plan_de_pagos
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDatosFeriado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DatosFeriados";
+            this.Load += new System.EventHandler(this.FormDatosFeriado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
