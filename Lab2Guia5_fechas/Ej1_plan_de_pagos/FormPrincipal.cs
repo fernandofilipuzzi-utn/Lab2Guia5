@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 using System.Collections;
 using Ej1_plan_de_pagos.Modelo;
-
+using CalendarioClassLib.Modelo;
 
 namespace Ej1_plan_de_pagos
 {
@@ -18,15 +18,13 @@ namespace Ej1_plan_de_pagos
     {
         Calendario calendario = new Calendario();
 
-
         public FormPrincipal()
         {
             InitializeComponent();
         }
                 
         private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-            
+        {            
         }
 
         private void btnAgregarFeriado_Click(object sender, EventArgs e)
@@ -42,7 +40,6 @@ namespace Ej1_plan_de_pagos
                 dtCalendario.BoldedDates = calendario.Fechas();
             }
         }
-
         
         private void calendario_DateSelected(object sender, DateRangeEventArgs e)
         {

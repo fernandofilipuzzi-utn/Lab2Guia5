@@ -67,7 +67,7 @@ namespace Ej1_plan_de_pagos
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(725, 281);
+            this.button1.Location = new System.Drawing.Point(725, 280);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 31);

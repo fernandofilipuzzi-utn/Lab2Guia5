@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2C214913-45A0-4058-8905-39C49E01BC91}</ProjectGuid>
+    <ProjectGuid>{7B9D1990-588C-4FC9-9CCB-913D56ECDC80}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Ej1_plan_de_pagos</RootNamespace>
-    <AssemblyName>Ej1_plan_de_pagos</AssemblyName>
+    <RootNamespace>Ej2_eventos</RootNamespace>
+    <AssemblyName>Ej2_eventos</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormDatosEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDatosEvento.Designer.cs">
+      <DependentUpon>FormDatosEvento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDatosFeriado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,9 +64,9 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Cuota.cs" />
-    <Compile Include="Modelo\Infractor.cs" />
-    <Compile Include="Modelo\PlanDePago.cs" />
+    <Compile Include="Modelo\Contrato.cs" />
+    <Compile Include="Modelo\Empresa.cs" />
+    <Compile Include="Modelo\Evento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormDatosFeriado.resx">
@@ -88,13 +94,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="uml\plan_de_pagos.uml" />
+    <None Include="uml\eventos.uml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="uml\plan_de_pagos.jpg" />
+    <Content Include="uml\eventos.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CalendarioClassLib\CalendarioClassLib.csproj">
