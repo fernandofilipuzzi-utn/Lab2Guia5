@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalendarioClassLib.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,10 +23,9 @@ namespace Ej2_eventos.Modelo
 
         public Empresa() { }
 
-
-        public Evento RegistrarEvento(string lugar)
+        public Evento RegistrarEvento(string lugar, double valorH, double valorNH, Calendario calendario)
         {
-            Evento evento = new Evento(numeroEvento++, lugar, 1, 1);
+            Evento evento = new Evento(numeroEvento++, lugar, valorH, valorNH, calendario);
 
             eventos.Add(evento);
 

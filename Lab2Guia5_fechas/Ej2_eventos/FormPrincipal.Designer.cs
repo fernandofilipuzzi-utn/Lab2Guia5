@@ -34,11 +34,13 @@ namespace Ej2_eventos
             this.dtCalendario = new System.Windows.Forms.MonthCalendar();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(725, 280);
+            this.button1.Location = new System.Drawing.Point(998, 5);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 31);
@@ -49,16 +51,38 @@ namespace Ej2_eventos
             // 
             // dtCalendario
             // 
-            this.dtCalendario.Location = new System.Drawing.Point(617, 311);
+            this.dtCalendario.Location = new System.Drawing.Point(890, 36);
             this.dtCalendario.Name = "dtCalendario";
             this.dtCalendario.TabIndex = 17;
             this.dtCalendario.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendario_DateSelected);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(745, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 35);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Prueba";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnPrueba_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(3, 50);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(875, 369);
+            this.textBox1.TabIndex = 19;
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 491);
+            this.ClientSize = new System.Drawing.Size(1156, 421);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dtCalendario);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -71,6 +95,7 @@ namespace Ej2_eventos
             this.Text = "Servicios a eventos";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -79,6 +104,8 @@ namespace Ej2_eventos
         private System.Windows.Forms.MonthCalendar dtCalendario;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

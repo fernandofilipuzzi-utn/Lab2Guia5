@@ -53,10 +53,23 @@ namespace Ej2_eventos
             }
         }
 
-      
+        private void btnPrueba_Click(object sender, EventArgs e)
+        {
+            Empresa empresa = new Empresa();
+            
+            double valorH = 234.23;//
+            double valorNH = 434.23;//
 
-      
+            Evento nuevo = empresa.RegistrarEvento("Paraná", valorH, valorNH, calendario);
 
-      
+            nuevo.Agregar(23432432, "Hernandez, Juan",new DateTime(2023, 9, 3), new DateTime(2023, 9, 9));
+            nuevo.Agregar(23432432, "Mores, Mariano", new DateTime(2023, 9, 8), new DateTime(2023, 9, 9));
+
+            for (int n = 0; n < nuevo.TotalContratos; n++)
+            {
+                textBox1.Text += nuevo.VerContrato(n).VerRecibo() + "\r\n";
+            }
+
+        }
     }
 }
