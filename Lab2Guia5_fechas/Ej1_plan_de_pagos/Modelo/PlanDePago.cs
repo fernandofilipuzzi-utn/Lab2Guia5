@@ -24,8 +24,7 @@ namespace Ej1_plan_de_pagos.Modelo
 
         public DateTime FechaAlta { get; private set; }
 
-        public PlanDePago(double monto, int cantCuotas, DateTime fechaAlta,
-                            Infractor destinatario,  Calendario calendario)
+        public PlanDePago(double monto, int cantCuotas, DateTime fechaAlta, Infractor destinatario,  Calendario calendario)
         {
             this.Destinatario = destinatario;
             this.cantidadCuotas = cantCuotas;
@@ -67,8 +66,7 @@ namespace Ej1_plan_de_pagos.Modelo
 
         private DateTime DeterminarDiaHabil(DateTime actual, Calendario feriados)
         {
-            if (actual.DayOfWeek == DayOfWeek.Saturday || 
-                actual.DayOfWeek == DayOfWeek.Sunday ||
+            if (actual.DayOfWeek == DayOfWeek.Saturday || actual.DayOfWeek == DayOfWeek.Sunday ||
                 feriados.Buscar(actual) != null )
             {
                 actual = DeterminarDiaHabil(actual.AddDays(1), feriados);

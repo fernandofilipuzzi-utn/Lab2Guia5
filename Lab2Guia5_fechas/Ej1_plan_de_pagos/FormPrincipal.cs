@@ -38,6 +38,7 @@ namespace Ej1_plan_de_pagos
              
                 calendario.AgregarFeriado(dia, descripcion);
                 dtCalendario.BoldedDates = calendario.Fechas();
+                
             }
         }
         
@@ -69,8 +70,7 @@ namespace Ej1_plan_de_pagos
                     ApelldosyNombres = nombre
                 };
 
-                PlanDePago plan = new PlanDePago(monto, cantCuotas, fechaAltaPlan,
-                                                    destinatario, calendario);
+                PlanDePago plan = new PlanDePago(monto, cantCuotas, fechaAltaPlan,  destinatario, calendario);
 
                 tbDetalle.Text = plan.VerDetalle();
 
